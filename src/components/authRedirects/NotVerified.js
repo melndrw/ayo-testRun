@@ -1,57 +1,57 @@
-import React from "react"
+import React from 'react';
 
-import { Result, Button, notification } from "antd"
+import { Result, Button, notification } from 'antd';
 
-import { useFirebase } from "react-redux-firebase"
-import { Redirect } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { logout } from "../store/actions/authActions"
+import { useFirebase } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../store/actions/authActions';
 
 const NotAuthorized = () => {
-  const firebase = useFirebase()
+  const firebase = useFirebase();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const auth = useSelector((state) => state.firebase.auth)
+  const auth = useSelector((state) => state.firebase.auth);
 
-  if (!auth.uid) return <Redirect to="/login" />
+  if (!auth.uid) return <Redirect to="/login" />;
 
   // check if email is verified
-  var email = firebase.auth().currentUser
-  var emailVerified
-  emailVerified = email.emailVerified
-  if (emailVerified) return <Redirect to="/" />
+  var email = firebase.auth().currentUser;
+  var emailVerified;
+  emailVerified = email.emailVerified;
+  if (emailVerified) return <Redirect to="/" />;
 
-  var user = firebase.auth().currentUser
+  var user = firebase.auth().currentUser;
   const resendEmailVerification = () => {
     var actionCodeSettings = {
-      url: "https://ayoph-bbceb.web.app/",
+      url: 'https://testrun-834d1.web.app/',
       handleCodeInApp: false,
-    }
+    };
     firebase
       .auth()
       .currentUser.sendEmailVerification(actionCodeSettings)
       .then(function () {
         // Verification email sent.
         notification.success({
-          message: "Notification",
-          description: "An email has been sent!",
-          placement: "topRight",
-        })
+          message: 'Notification',
+          description: 'An email has been sent!',
+          placement: 'topRight',
+        });
       })
       .catch(function (error) {
         // Error occurred. Inspect error.code.
         notification.error({
           message: `Notification`,
           description: error.message,
-          placement: "topRight",
-        })
-      })
-  }
+          placement: 'topRight',
+        });
+      });
+  };
 
   const handleLogout = () => {
-    dispatch(logout({ firebase }))
-  }
+    dispatch(logout({ firebase }));
+  };
 
   return (
     <Result
@@ -71,7 +71,7 @@ const NotAuthorized = () => {
         </Button>,
       ]}
     />
-  )
-}
+  );
+};
 
-export default NotAuthorized
+export default NotAuthorized;

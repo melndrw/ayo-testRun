@@ -1,9 +1,9 @@
 import { storage } from '../../config/firebaseConfig';
 
 var config = {
-  apiKey: 'AIzaSyDFr2Qsnag57QhFzWfbPh9w-VmKqdN1DF0',
-  authDomain: 'ayoph-bbceb.firebaseapp.com',
-  databaseURL: 'https://ayoph-bbceb.firebaseio.com',
+  apiKey: 'AIzaSyBzDU1TQBj_aMrMJXp2ecpf8jBuZ76Jc2k',
+  authDomain: 'testrun-834d1.firebaseapp.com',
+  databaseURL: 'https://testrun-834d1.firebaseio.com',
 };
 
 export const addStore = (
@@ -22,7 +22,7 @@ export const addStore = (
       .createUserWithEmailAndPassword(newStore.email, newStore.password)
       .then((res) => {
         var actionCodeSettings = {
-          url: 'https://ayoph-bbceb.web.app/',
+          url: 'https://testrun-834d1.web.app/',
           handleCodeInApp: false,
         };
         secondaryApp

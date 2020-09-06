@@ -1,22 +1,22 @@
-import firebase from "firebase/app"
-import "firebase/firestore"
-import "firebase/auth"
-import "firebase/storage"
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDFr2Qsnag57QhFzWfbPh9w-VmKqdN1DF0",
-  authDomain: "ayoph-bbceb.firebaseapp.com",
-  databaseURL: "https://ayoph-bbceb.firebaseio.com",
-  projectId: "ayoph-bbceb",
-  storageBucket: "ayoph-bbceb.appspot.com",
-  messagingSenderId: "942460282098",
-  appId: "1:942460282098:web:039ab515d4f356097c9c6b",
-  measurementId: "G-5935TJKHZN",
-}
+  apiKey: 'AIzaSyBzDU1TQBj_aMrMJXp2ecpf8jBuZ76Jc2k',
+  authDomain: 'testrun-834d1.firebaseapp.com',
+  databaseURL: 'https://testrun-834d1.firebaseio.com',
+  projectId: 'testrun-834d1',
+  storageBucket: 'testrun-834d1.appspot.com',
+  messagingSenderId: '254106625851',
+  appId: '1:254106625851:web:35f179b39987cd20eeb91e',
+  measurementId: 'G-8F9YNJBDE9',
+};
 
-firebase.initializeApp(firebaseConfig)
-firebase.firestore()
+firebase.initializeApp(firebaseConfig);
+firebase.firestore();
 
-const storage = firebase.storage()
+const storage = firebase.storage();
 
-export { storage, firebase as default }
+export { storage, firebase as default };

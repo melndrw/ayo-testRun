@@ -1,15 +1,15 @@
 var config = {
-  apiKey: "AIzaSyDFr2Qsnag57QhFzWfbPh9w-VmKqdN1DF0",
-  authDomain: "ayoph-bbceb.firebaseapp.com",
-  databaseURL: "https://ayoph-bbceb.firebaseio.com",
-}
+  apiKey: 'AIzaSyBzDU1TQBj_aMrMJXp2ecpf8jBuZ76Jc2k',
+  authDomain: 'testrun-834d1.firebaseapp.com',
+  databaseURL: 'https://testrun-834d1.firebaseio.com',
+};
 
 export const registerAdmin = (
   { firebase, firestore },
   newAdmin,
   statusCallback
 ) => {
-  var secondaryApp = firebase.initializeApp(config, "Secondary")
+  var secondaryApp = firebase.initializeApp(config, 'Secondary');
 
   return (dispatch, getState) => {
     secondaryApp
@@ -17,47 +17,47 @@ export const registerAdmin = (
       .createUserWithEmailAndPassword(newAdmin.email, newAdmin.password)
       .then((res) => {
         var actionCodeSettings = {
-          url: "https://ayoph-bbceb.web.app/",
+          url: 'https://testrun-834d1.web.app/',
           handleCodeInApp: false,
-        }
+        };
         secondaryApp
           .auth()
           .currentUser.sendEmailVerification(actionCodeSettings)
           .then(function () {
             // Verification email sent.
-            console.log("email verification sent!")
+            console.log('email verification sent!');
           })
           .catch(function (error) {
             // Error occurred. Inspect error.code.
-            console.log(error.message)
-          })
+            console.log(error.message);
+          });
 
-        secondaryApp.auth().signOut()
-        secondaryApp.delete()
-        statusCallback("success")
-        firestore.collection("Accounts").doc(res.user.uid).set({
+        secondaryApp.auth().signOut();
+        secondaryApp.delete();
+        statusCallback('success');
+        firestore.collection('Accounts').doc(res.user.uid).set({
           firstName: newAdmin.firstName,
           lastName: newAdmin.lastName,
-          role: "admin",
+          role: 'admin',
           createdAt: new Date(),
-        })
+        });
       })
       .then((res) => {
         dispatch({
-          type: "ADMIN_SIGNUP_SUCCESS",
-        })
+          type: 'ADMIN_SIGNUP_SUCCESS',
+        });
       })
       .catch((err) => {
-        secondaryApp.auth().signOut()
-        secondaryApp.delete()
+        secondaryApp.auth().signOut();
+        secondaryApp.delete();
         dispatch({
-          type: "ADMIN_SIGNUP_FAIL",
+          type: 'ADMIN_SIGNUP_FAIL',
           err,
-        })
-        statusCallback("fail")
-      })
-  }
-}
+        });
+        statusCallback('fail');
+      });
+  };
+};
 
 export const login = ({ firebase }, credentials, ErrorCallback) => {
   return (dispatch, getState) => {
@@ -66,18 +66,18 @@ export const login = ({ firebase }, credentials, ErrorCallback) => {
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then((res) => {
         dispatch({
-          type: "LOGIN_SUCCESS",
-        })
+          type: 'LOGIN_SUCCESS',
+        });
       })
       .catch((err) => {
         dispatch({
-          type: "LOGIN_FAIL",
+          type: 'LOGIN_FAIL',
           err,
-        })
-        ErrorCallback(err)
-      })
-  }
-}
+        });
+        ErrorCallback(err);
+      });
+  };
+};
 
 export const logout = ({ firebase }) => {
   return (dispatch, getState) => {
@@ -86,8 +86,8 @@ export const logout = ({ firebase }) => {
       .signOut()
       .then((res) => {
         dispatch({
-          type: "LOGOUT_SUCCESS",
-        })
-      })
-  }
-}
+          type: 'LOGOUT_SUCCESS',
+        });
+      });
+  };
+};

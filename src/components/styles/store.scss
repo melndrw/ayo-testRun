@@ -1,0 +1,46 @@
+// Stores
+.stores {
+  border: 1px dashed #e9e9e9;
+  border-radius: 2px;
+  background-color: #fafafa;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+// Add store
+.addstore {
+  margin-top: 16px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 2px;
+  background-color: #fafafa;
+  padding-top: 40px;
+}
+
+// Store Details
+.store_details {
+  position: relative;
+  border: 1px dashed #e9e9e9;
+  border-radius: 2px;
+  padding: 20px 30px 30px;
+  min-height: 660px;
+}
+
+.avatar-uploader > .ant-upload {
+  width: 128px;
+  height: 128px;
+}
+
+.filter-style {
+  display: flex;
+  justify-content: space-between;
+
+  &__stat button {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .filter-style {
+    display: inline-block;
+  }
+}

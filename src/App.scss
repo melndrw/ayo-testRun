@@ -1,0 +1,70 @@
+@import "./components/styles/dashboard.scss";
+@import "./components//styles/login.scss";
+@import "./components/styles/steps.scss";
+@import "./components/styles/store.scss";
+@import "./components/styles/map.scss";
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  height: 56px;
+  margin: 20px;
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.init {
+  padding: 5px 8px;
+  background-color: #77b2ff;
+  border-radius: 50%;
+}
+
+.ant-page-header {
+  background-color: #2d3f99;
+  margin-bottom: 15px;
+  .ant-page-header-heading-title {
+    color: #fff;
+  }
+}
+
+input[type="file"] {
+  color: transparent;
+}
+
+.centerLoader {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 9;
+}
+
+.ant-modal-footer {
+  display: none !important;
+}
+
+.ant-result-title {
+  font-size: 14px !important;
+}
